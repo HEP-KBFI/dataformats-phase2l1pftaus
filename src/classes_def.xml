@@ -1,0 +1,8 @@
+<lcgdict>
+  <class name="l1t::TallinnL1PFTau" ClassVersion="11">
+   <version ClassVersion="11" checksum="3209584749"/>
+  </class>
+  <class name="l1t::TallinnL1PFTauCollection"/>
+  <class name="edm::Wrapper<l1t::TallinnL1PFTauCollection>"/>
+  <class name="std::vector<l1t::TallinnL1PFTau>"/>
+</lcgdict>
