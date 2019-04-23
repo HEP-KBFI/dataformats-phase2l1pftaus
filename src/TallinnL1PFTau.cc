@@ -1,25 +1,27 @@
-
-
 #include "DataFormats/TallinnL1PFTaus/interface/TallinnL1PFTau.h"
 
-using std::ostream;
-using std::endl;
-using std::hex;
-using std::dec;
-
-typedef std::vector<l1t::TallinnL1PFTau> TallinnL1PFTauCollection;
-
 // default constructor
-l1t::TallinnL1PFTau::TallinnL1PFTau() : m_data(0), m_tauType(12), m_tauIsoQual(0), m_tauRelIsoQual(0), m_relativeIsolation(100), m_rawIsolation(0), m_chargedIsolation(0), m_passTightIso(0), m_passMediumIso(0),m_passLooseIso(0), m_passVLooseIso(0), m_passTightRelIso(0), m_passMediumRelIso(0),m_passLooseRelIso(0), m_passVLooseRelIso(0){  };
- 
+TallinnL1PFTau::TallinnL1PFTau() 
+  : sumChargedIso_(0.)
+  , sumNeutralIso_(0.)
+  , sumCombinedIso_(0.)
+  , passTightIso_(false)
+  , passMediumIso_(false)
+  , passLooseIso_(false)
+  , passVLooseIso_(false)
+  , passTightRelIso_(false)
+  , passMediumRelIso_(false)
+  , passLooseRelIso_(false)
+  , passVLooseRelIso_(false)
+{}
 
 // destructor
-l1t::TallinnL1PFTau::~TallinnL1PFTau() { }
-
+TallinnL1PFTau::~TallinnL1PFTau() 
+{}
 
 // print to stream
 /*
-ostream& l1t::operator<<(ostream& os, const l1t::TallinnL1PFTau& tau) {
+ostream& l1t::operator<<(ostream& os, const TallinnL1PFTau& tau) {
 
   os << "TallinnL1PFTau:";
   os << " Reco -> ET = " <<tau.p4().Pt();
@@ -45,5 +47,4 @@ ostream& l1t::operator<<(ostream& os, const l1t::TallinnL1PFTau& tau) {
 
   return os;
 }
-
 */
