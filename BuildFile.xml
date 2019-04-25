@@ -1,5 +1,6 @@
 <use   name="DataFormats/Candidate"/>
 <use   name="DataFormats/Common"/>
+<use   name="DataFormats/JetReco"/>
 <use   name="DataFormats/Phase2L1ParticleFlow"/>
 <export>
   <lib   name="1"/>

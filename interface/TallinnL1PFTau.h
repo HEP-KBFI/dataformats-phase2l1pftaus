@@ -3,6 +3,8 @@
 
 #include "DataFormats/Phase2L1ParticleFlow/interface/PFCandidate.h"    // l1t::PFCandidate
 #include "DataFormats/Phase2L1ParticleFlow/interface/PFCandidateFwd.h" // l1t::PFCandidateRef, l1t::PFCandidateRefVector
+#include "DataFormats/JetReco/interface/PFJet.h"                       // reco::PFJet
+#include "DataFormats/JetReco/interface/PFJetCollection.h"             // reco::PFJetCollection, reco::PFJetRef
 #include "DataFormats/Candidate/interface/LeafCandidate.h"             // reco::LeafCandidate 
 #include "DataFormats/Candidate/interface/Particle.h"                  // reco::Particle::LorentzVector
 
@@ -24,7 +26,11 @@ class TallinnL1PFTau : public reco::LeafCandidate
   ~TallinnL1PFTau();
 
   /// accessor functions for reco level quantities
+  bool isChargedPFCandSeeded() const { return seedChargedPFCand_.isNonnull(); }   
+  bool isPFJetSeeded()         const { return seedPFJet_.isNonnull();         } 
+
   const l1t::PFCandidateRef& seedChargedPFCand() const { return seedChargedPFCand_; }
+  const reco::PFJetRef& seedPFJet()              const { return seedPFJet_;         }
   const l1t::PFCandidateRef& leadChargedPFCand() const { return leadChargedPFCand_; }
 
   const l1t::PFCandidateRefVector& signalAllL1PFCandidates() const { return signalAllL1PFCandidates_; }
@@ -70,6 +76,7 @@ class TallinnL1PFTau : public reco::LeafCandidate
 
  private:
   l1t::PFCandidateRef seedChargedPFCand_;
+  reco::PFJetRef seedPFJet_;
   l1t::PFCandidateRef leadChargedPFCand_;
 
   l1t::PFCandidateRefVector signalAllL1PFCandidates_;
