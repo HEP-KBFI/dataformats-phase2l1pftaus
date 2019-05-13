@@ -7,6 +7,8 @@
 #include "DataFormats/JetReco/interface/PFJetCollection.h"             // reco::PFJetCollection, reco::PFJetRef
 #include "DataFormats/Candidate/interface/LeafCandidate.h"             // reco::LeafCandidate 
 #include "DataFormats/Candidate/interface/Particle.h"                  // reco::Particle::LorentzVector
+#include "DataFormats/L1TVertex/interface/Vertex.h"                    // l1t::Vertex
+#include "DataFormats/L1TVertex/interface/VertexFwd.h"                 // l1t::VertexRef
 
 #include <ostream>
 
@@ -54,6 +56,8 @@ class TallinnL1PFTau : public reco::LeafCandidate
   const l1t::PFCandidateRefVector& sumPhotons()              const { return sumPhotons_;              }
   const l1t::PFCandidateRefVector& sumMuons()                const { return sumMuons_;                }
 
+  const l1t::VertexRef&            primaryVertex()           const { return primaryVertex_;           }
+
   enum Kind { kUndefined, kOneProng0Pi0, kOneProng1Pi0, kThreeProng0Pi0, kThreeProng1Pi0 };
   Kind tauType() const { return tauType_; }
 
@@ -100,6 +104,8 @@ class TallinnL1PFTau : public reco::LeafCandidate
   l1t::PFCandidateRefVector sumPhotons_;
   l1t::PFCandidateRefVector sumMuons_;
 
+  l1t::VertexRef primaryVertex_;
+
   Kind tauType_;
 
   reco::Particle::LorentzVector strip_p4_;
@@ -123,5 +129,7 @@ class TallinnL1PFTau : public reco::LeafCandidate
 
 /// print to stream
 std::ostream& operator<<(std::ostream& os, const l1t::TallinnL1PFTau& l1PFTau);
+
+void printPFCand(ostream& os, const l1t::PFCandidate& l1PFCand, const l1t::VertexRef& primaryVertex);
 
 #endif 
