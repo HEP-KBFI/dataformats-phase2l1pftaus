@@ -1,10 +1,11 @@
 <lcgdict>
-  <class name="l1t::TallinnL1PFTau" ClassVersion="15">
+  <class name="l1t::TallinnL1PFTau" ClassVersion="16">
    <version ClassVersion="11" checksum="3209584749"/>
    <version ClassVersion="12" checksum="577979674"/>
    <version ClassVersion="13" checksum="78275230"/>
    <version ClassVersion="14" checksum="2062440970"/>
    <version ClassVersion="15" checksum="1078277666"/>
+   <version ClassVersion="16" checksum="843341248"/>
   </class>
   <class name="l1t::TallinnL1PFTauCollection"/>
   <class name="edm::Wrapper<l1t::TallinnL1PFTauCollection>"/>

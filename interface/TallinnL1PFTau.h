@@ -63,8 +63,10 @@ class TallinnL1PFTau : public reco::LeafCandidate
 
   const reco::Particle::LorentzVector& strip_p4() const { return strip_p4_; }
   
-  float sumChargedIso() const { return sumChargedIso_; }
-  float sumNeutralIso() const { return sumNeutralIso_; }
+  float sumChargedIso()       const { return sumChargedIso_;       }
+  float sumNeutralIso()       const { return sumNeutralIso_;       }
+  float sumCombinedIso()      const { return sumCombinedIso_;      }
+  float sumChargedIsoPileup() const { return sumChargedIsoPileup_; }
   
   bool passTightIso()     const { return passTightIso_;     }
   bool passMediumIso()    const { return passMediumIso_;    }
@@ -113,6 +115,7 @@ class TallinnL1PFTau : public reco::LeafCandidate
   float sumChargedIso_;
   float sumNeutralIso_;
   float sumCombinedIso_;
+  float sumChargedIsoPileup_; // charged PFCands failing dz cut (maybe useful for applying delta-beta corrections to neutral isolation)
   
   bool passTightIso_;
   bool passMediumIso_;

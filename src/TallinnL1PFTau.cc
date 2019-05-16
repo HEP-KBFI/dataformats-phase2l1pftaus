@@ -6,6 +6,7 @@ l1t::TallinnL1PFTau::TallinnL1PFTau()
   , sumChargedIso_(0.)
   , sumNeutralIso_(0.)
   , sumCombinedIso_(0.)
+  , sumChargedIsoPileup_(0.)
   , passTightIso_(false)
   , passMediumIso_(false)
   , passLooseIso_(false)
@@ -55,7 +56,8 @@ ostream& operator<<(ostream& os, const l1t::TallinnL1PFTau& l1PFTau)
   {
     printPFCand(os, *l1PFCand, l1PFTau.primaryVertex());
   }
-  os << "isolation pT-sum: charged = " << l1PFTau.sumChargedIso() << ", neutral = " << l1PFTau.sumNeutralIso() << std::endl;
+  os << "isolation pT-sum: charged = " << l1PFTau.sumChargedIso() << ", neutral = " << l1PFTau.sumNeutralIso() 
+     << " (charged from pileup = " << l1PFTau.sumChargedIsoPileup() << ")" << std::endl;
   return os;
 }
 
