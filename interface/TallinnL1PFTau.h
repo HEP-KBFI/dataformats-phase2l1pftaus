@@ -134,5 +134,6 @@ class TallinnL1PFTau : public reco::LeafCandidate
 std::ostream& operator<<(std::ostream& os, const l1t::TallinnL1PFTau& l1PFTau);
 
 void printPFCand(ostream& os, const l1t::PFCandidate& l1PFCand, const l1t::VertexRef& primaryVertex);
+void printPFCand(ostream& os, const l1t::PFCandidate& l1PFCand, float primaryVertex_z);
 
 #endif 

@@ -63,6 +63,12 @@ ostream& operator<<(ostream& os, const l1t::TallinnL1PFTau& l1PFTau)
 
 void printPFCand(ostream& os, const l1t::PFCandidate& l1PFCand, const l1t::VertexRef& primaryVertex)
 {
+  float primaryVertex_z = ( primaryVertex.isNonnull() ) ? primaryVertex->z0() : 0.;
+  printPFCand(os, l1PFCand, primaryVertex_z);
+}
+
+void printPFCand(ostream& os, const l1t::PFCandidate& l1PFCand, float primaryVertex_z)
+{
   std::string type_string;
   if      ( l1PFCand.id() == l1t::PFCandidate::ChargedHadron ) type_string = "PFChargedHadron";
   else if ( l1PFCand.id() == l1t::PFCandidate::Electron      ) type_string = "PFElectron";
@@ -72,9 +78,9 @@ void printPFCand(ostream& os, const l1t::PFCandidate& l1PFCand, const l1t::Verte
   else                                                         type_string = "N/A";
   os << " " << type_string << " with pT = " << l1PFCand.pt()  << ", eta = " << l1PFCand.eta() << ", phi = " << l1PFCand.phi() << "," 
      << " mass = " << l1PFCand.mass() << ", charge = " << l1PFCand.charge();
-  if ( l1PFCand.charge() != 0 && primaryVertex.isNonnull() ) 
+  if ( l1PFCand.charge() != 0 && primaryVertex_z != 0. ) 
   {
-    os << " (dz = " << std::fabs(l1PFCand.pfTrack()->vertex().z() - primaryVertex->z0()) << ")";
+    os << " (dz = " << std::fabs(l1PFCand.pfTrack()->vertex().z() - primaryVertex_z) << ")";
   }
   os << std::endl;
 }
