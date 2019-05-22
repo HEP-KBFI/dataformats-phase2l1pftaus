@@ -67,6 +67,7 @@ class TallinnL1PFTau : public reco::LeafCandidate
   float sumNeutralIso()       const { return sumNeutralIso_;       }
   float sumCombinedIso()      const { return sumCombinedIso_;      }
   float sumChargedIsoPileup() const { return sumChargedIsoPileup_; }
+  float rhoCorr()             const { return rhoCorr_;             }
   
   bool passTightIso()     const { return passTightIso_;     }
   bool passMediumIso()    const { return passMediumIso_;    }
@@ -115,8 +116,9 @@ class TallinnL1PFTau : public reco::LeafCandidate
   float sumChargedIso_;
   float sumNeutralIso_;
   float sumCombinedIso_;
-  float sumChargedIsoPileup_; // charged PFCands failing dz cut (maybe useful for applying delta-beta corrections to neutral isolation)
-  
+  float sumChargedIsoPileup_; // charged PFCands failing dz cut (maybe useful to correct neutral isolation for pile-up contributions by applying delta-beta corrections)
+  float rhoCorr_;             // rho correction (maybe useful for applying pile-up corrections to neutral isolation)
+
   bool passTightIso_;
   bool passMediumIso_;
   bool passLooseIso_;
