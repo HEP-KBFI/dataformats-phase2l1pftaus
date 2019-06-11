@@ -42,6 +42,10 @@ class TallinnL1PFTau : public reco::LeafCandidate
   const l1t::PFCandidateRefVector& signalPhotons()           const { return signalPhotons_;           }
   const l1t::PFCandidateRefVector& signalMuons()             const { return signalMuons_;             }
   
+  const l1t::PFCandidateRefVector& stripAllL1PFCandidates()  const { return stripAllL1PFCandidates_;  }
+  const l1t::PFCandidateRefVector& stripElectrons()          const { return stripElectrons_;          }
+  const l1t::PFCandidateRefVector& stripPhotons()            const { return stripPhotons_;            }
+
   const l1t::PFCandidateRefVector& isoAllL1PFCandidates()    const { return isoAllL1PFCandidates_;    }
   const l1t::PFCandidateRefVector& isoChargedHadrons()       const { return isoChargedHadrons_;       }
   const l1t::PFCandidateRefVector& isoElectrons()            const { return isoElectrons_;            }
@@ -63,11 +67,15 @@ class TallinnL1PFTau : public reco::LeafCandidate
 
   const reco::Particle::LorentzVector& strip_p4() const { return strip_p4_; }
   
-  float sumChargedIso()       const { return sumChargedIso_;       }
-  float sumNeutralIso()       const { return sumNeutralIso_;       }
-  float sumCombinedIso()      const { return sumCombinedIso_;      }
-  float sumChargedIsoPileup() const { return sumChargedIsoPileup_; }
-  float rhoCorr()             const { return rhoCorr_;             }
+  float sumAllL1PFCandidates_pt() const { return sumAllL1PFCandidates_pt_; }
+  float signalConeSize()          const { return signalConeSize_;          }
+  float isolationConeSize()       const { return signalConeSize_;          }
+
+  float sumChargedIso()           const { return sumChargedIso_;           }
+  float sumNeutralIso()           const { return sumNeutralIso_;           }
+  float sumCombinedIso()          const { return sumCombinedIso_;          }
+  float sumChargedIsoPileup()     const { return sumChargedIsoPileup_;     }
+  float rhoCorr()                 const { return rhoCorr_;                 }
   
   bool passTightIso()     const { return passTightIso_;     }
   bool passMediumIso()    const { return passMediumIso_;    }
@@ -93,6 +101,10 @@ class TallinnL1PFTau : public reco::LeafCandidate
   l1t::PFCandidateRefVector signalPhotons_;
   l1t::PFCandidateRefVector signalMuons_;
   
+  l1t::PFCandidateRefVector stripAllL1PFCandidates_;
+  l1t::PFCandidateRefVector stripElectrons_;
+  l1t::PFCandidateRefVector stripPhotons_;
+
   l1t::PFCandidateRefVector isoAllL1PFCandidates_;
   l1t::PFCandidateRefVector isoChargedHadrons_;
   l1t::PFCandidateRefVector isoElectrons_;
@@ -112,6 +124,10 @@ class TallinnL1PFTau : public reco::LeafCandidate
   Kind tauType_;
 
   reco::Particle::LorentzVector strip_p4_;
+
+  float sumAllL1PFCandidates_pt_;
+  float signalConeSize_;
+  float isolationConeSize_;
 
   float sumChargedIso_;
   float sumNeutralIso_;

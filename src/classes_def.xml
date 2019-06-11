@@ -1,5 +1,6 @@
 <lcgdict>
-  <class name="l1t::TallinnL1PFTau" ClassVersion="18">
+  <class name="l1t::TallinnL1PFTau" ClassVersion="19">
+   <version ClassVersion="19" checksum="1889712822"/>
    <version ClassVersion="18" checksum="1566896678"/>
    <version ClassVersion="17" checksum="2195477758"/>
    <version ClassVersion="16" checksum="843341248"/>
